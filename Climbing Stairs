@@ -1,0 +1,29 @@
+class Solution {
+    private:
+    int solve(int n,vector<int>&dp){
+        
+        if(n<0){
+            return 0;
+        }
+         if(n==0){
+            return 1;
+        }
+        if(dp[n]!=-1){
+            return dp[n];
+        }
+        int left=solve(n-1,dp);
+        int right=solve(n-2,dp);
+        dp[n]=left+right;
+        return dp[n];
+    }
+    
+    
+public:
+    int climbStairs(int n) {
+        // int index=0;
+        
+        vector<int>dp(n+1,-1);
+        return solve(n,dp);
+        
+    }
+};
