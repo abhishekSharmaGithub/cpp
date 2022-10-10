@@ -1,0 +1,22 @@
+string largestNumber(vector<int>& nums) {
+        vector<string> numbs;
+        for(auto i : nums)
+        {
+            numbs.push_back(to_string(i));
+        }
+        sort(numbs.begin(),numbs.end(),[](string &a, string &b)
+             {  
+                 return a+b>b+a;
+             });
+        string ans = "";
+        for(auto i: numbs)
+            ans+=i;
+        
+        int i=0;
+        while(ans[i]=='0')
+        {
+            ans = ans.substr(i+1,n);
+        }
+        
+        return ans==""?"0":ans;
+    }
